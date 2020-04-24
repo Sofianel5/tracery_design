@@ -1,0 +1,361 @@
+$colors: ( background: black, primary: white);
+$desktop: 1000px;
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$desktop}) {
+        @content;
+    }
+}
+
+body {
+    * {
+        box-sizing: border-box;
+    }
+    a {
+        color: inherit;
+    }
+    a:hover {
+        color: inherit;
+    }
+    font-family: 'Montserrat',
+    sans-serif;
+    cursor: pointer;
+    padding: 0.5vh 5vw;
+    overflow: hidden;
+    background-color: map-get($colors, background);
+    color: map-get($colors, primary);
+    header {
+        background-color: map-get($colors, background);
+        position: fixed;
+        padding: 0.5vh 0;
+        width: 90%;
+        display: flex;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: space-between;
+        span.logo-txt {
+            text-transform: uppercase;
+            font-size: 25px;
+            background-color: map-get($colors, background);
+        }
+    }
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        perspective: 1000;
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+        }
+    }
+    .title {
+        width: 50%;
+        @include mobile {
+            width: 90%;
+        }
+    }
+    h1 {
+        margin-top: 30vh;
+        @include mobile {
+            margin-top: 20vh;
+        }
+    }
+    h1,
+    h2 {
+        margin-bottom: 5vh;
+    }
+    button {
+        min-width: 100px;
+        background: none;
+        border: 1px solid map-get($colors, primary);
+        font-weight: 500;
+        color: map-get($colors, primary);
+        font-size: 13px;
+        padding: 2vh 2vw;
+        overflow: hidden;
+        z-index: 1;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    button>a {
+        position: relative;
+        z-index: 1;
+    }
+    button:hover a {
+        color: map-get($colors, background);
+    }
+    button:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        transition: all 0.5s ease;
+        top: 0;
+        z-index: 0;
+        left: -210px;
+    }
+    button:hover:before {
+        left: 0;
+    }
+    section {
+        width: 100%;
+        height: 100vh;
+    }
+    #section2 {
+        padding-top: 0;
+    }
+    .fake-screen {
+        position: absolute;
+        width: 40vw;
+        background-color: map-get($colors, primary);
+        height: 45vh;
+        top: 0%;
+        right: 10%;
+        box-sizing: border-box;
+        padding: 2px;
+        @include desktop {
+            top: 10%;
+            .fake-mobile-nav {
+                @include desktop {
+                    display: none;
+                    * {
+                        display: none;
+                        * {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        @include mobile {
+            position: relative;
+            margin-top: 0vh;
+            margin-left: 27vw;
+            .fake-header,
+            .fake-column {
+                display: none;
+            }
+            z-index: 0;
+            border-radius: 10px;
+            width: 40vw;
+            height: 40vh;
+            transform: rotate(30deg);
+            .fake-mobile-nav {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1vh 1vw;
+                * {
+                    color: map-get($map: $colors, $key: background);
+                    width: 5vw;
+                    height: 5vw;
+                    text-align: center;
+                    font-size: large;
+                }
+                .fake-button {
+                    border-radius: 2.5vw;
+                    background-color: map-get($colors, background);
+                }
+            }
+            #fake-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    }
+    .ripple {
+        position: absolute;
+        width: 40vw;
+        background: none;
+        z-index: 1;
+        height: 45vh;
+        top: 0%;
+        right: 10%;
+        box-sizing: border-box;
+        transform: scale(0);
+        border: 1px solid white;
+        padding: 2px;
+        @include desktop {
+            top: 10%;
+        }
+        @include mobile {
+            position: relative;
+            z-index: 0;
+            transform: rotate(0deg);
+            margin-left: 40vw;
+            margin-top: 0vh;
+            width: 50vw;
+            height: 50vh;
+            display: none;
+        }
+    }
+    .fake-header {
+        position: absolute;
+        background-color: darken(map-get($colors, primary), 20%);
+        width: 36vw;
+        height: 5vh;
+        top: 5%;
+        right: 5%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .fake-button {
+            background-color: map-get($colors, background);
+            margin: auto 0;
+            width: 5vw;
+            height: 3vh;
+        }
+    }
+    .bottom {
+        top: 80%;
+    }
+    .col-container {
+        position: absolute;
+        width: 36vw;
+        top: 25%;
+        right: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .fake-column {
+        width: 10vw;
+        height: 20vh;
+        background-color: darken(map-get($colors, primary), 20%);
+        top: 35%;
+        overflow: hidden;
+    }
+    .fake-row {
+        background-color: map-get($colors, background);
+        width: 7vw;
+        margin: 1vh auto;
+        height: 1vh;
+        min-height: 6px;
+    }
+    .project-ss {
+        z-index: 1000;
+        background-size: cover;
+        z-index: 5;
+        overflow: visible;
+        @include mobile {
+            transform: rotate(0deg);
+            margin-left: 40vw;
+            margin-top: 0vh;
+            width: 50vw;
+            height: 50vh;
+        }
+    }
+    .nycaerospace {
+        z-index: 1000;
+        @include desktop {
+            background-image: url('images/nycaero-desktop.png');
+        }
+        @include mobile {
+            background-image: url('images/nycaero-mobile.png');
+        }
+    }
+    .tracery {
+        z-index: 1000;
+        @include desktop {
+            background-image: url('images/tracery-desktop.png');
+        }
+        @include mobile {
+            background-image: url('images/tracery_mockup.gif');
+            height: 47vh;
+            width: 20vw;
+            min-width: 150px;
+        }
+    }
+    .katapult {
+        background-size: cover;
+        background-image: url('katapult/katapult.gif');
+        transform: rotate(0deg);
+        z-index: 1000;
+        border-radius: 0;
+        @include mobile {
+            background-image: none;
+            background: none;
+            border-radius: 0;
+            margin: 10vh 7vw;
+            width: 92vw;
+            height: 25vh;
+            padding: 0 5vw;
+        }
+        img {
+            @include desktop {
+                display: none;
+            }
+            height: 23vh;
+            width: auto;
+            z-index: 1001;
+        }
+    }
+    .falah {
+        z-index: 1000;
+        @include desktop {
+            background-image: url('images/falah.png');
+        }
+        @include mobile {
+            background-image: url('images/falah_mockup.gif');
+            height: 50vh;
+            width: 20vw;
+            min-width: 150px;
+        }
+    }
+}
+
+.reveal:after {
+    content: ' ';
+    background-color: map-get($colors, background);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform-origin: 0% 100%;
+}
+
+button:hover {
+    color: map-get($colors, background);
+}
+
+button.btn-background {
+    background-color: map-get($colors, primary);
+}
+
+ul.transition {
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    height: 100vh;
+    width: 105%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    pointer-events: none;
+    margin-left: -5vw;
+    @include mobile {
+        margin-left: -12vw;
+        width: 115%;
+    }
+}
+
+ul.transition li {
+    transform: scaleY(0);
+    background-color: white;
+    width: 25vw;
+}
+
+#section1 {}
