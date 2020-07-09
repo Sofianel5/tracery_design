@@ -164,33 +164,27 @@
                     </div>
                 </div>
             </div>
+            <img class="titleimg fake-screen" src="assets/images/back1.jpg">
         </section>
-        <section class="for-full-back color-white " id="section2">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <div class="col-md-3 ">
-                            <div style="display: none" class="service-div">
-                                <i class="fa fa-desktop fa-5x faa-vertical "></i>
-                                <h4>Websites </h4>
-                                <p>
-                                    Have a professinally developed page up and running in days! Whether it be a one page profile or a massive company website, we'll have you covered. Just fill out the form below, or contact us for a quote.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 ">
-                            <div style="display: none" class="service-div">
-                                <i class="fa fa-flask fa-5x faa-ring animated"></i>
-                                <h4>Apps</h4>
-                                <p>
-                                    Have a two platformed app made in less than a month! Coded and maintained from scratch, so all details will be included.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="outside-title title">
+            <span class="reveal">About us</span>
+        </h2>
+        <h5 class="outside-subtitle title">
+            <span class="reveal">Tracery Technologies is an app and web development firm that specializes in quickly made high performance apps. We can comission one time fees, or can maintain your app for as long as you'd like. Our agency is small, positioning us to have close communications with every single one of our clients. As a result, our apps come out highly custom, as we hear your input through every step of the way.</span>
+        </h5>
+        <div class="info-row">
+            <div class="cell">
+                <h2 class="title">
+                    <span class="reveal">Our Business Model</span>
+                </h2>
+                <h4 class="title">
+                    <span class="reveal">Our business model here at Tracery is one of efficency and proficiency. Our small size enables us to focus all of our attnetion on a very few number of projects at a time, and as a result we can masterfully help out each and every customer with the best product out there.</span>
+                </h4>
             </div>
-        </section>
+            <div class="cell">
+                <img src="assets/images/flowchart.png" class="animing">
+            </div>
+        </div>
     </div>
     <script src="assets/gsap.js"></script>
     <script src="assets/cssrule.js"></script>
@@ -233,6 +227,13 @@
                     duration: .2,
                     stagger: 0.2,
                 })
+                gsap.from(".animing", 2, {
+                    y: -50,
+                    opacity: 0,
+                    delay: 2,
+                    duration: .2,
+                    stagger: 0.2,
+                })
                 gsap.from(".fake-row", 2, {
                         x: -50,
                         opacity: 0,
@@ -251,10 +252,10 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
     <script src="https://threejs.org/build/three.js"></script>
     <script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
